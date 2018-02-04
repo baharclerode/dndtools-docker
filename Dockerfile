@@ -4,7 +4,7 @@ FROM python:2.7-alpine3.7 AS builder
 COPY django-reversion-1.3.3.zip /django-reversion-1.3.3.zip
 RUN pip install /django-reversion-1.3.3.zip
 
-RUN apk add --no-cache build-base git mysql-client
+RUN apk add --no-cache build-base git mysql-client mysql-client-libs
 RUN git clone https://github.com/dndtools/dndtools.git /dndtools
 
 WORKDIR /dndtools/
@@ -16,7 +16,7 @@ RUN pip install -r requirements.txt
 COPY local.py dndtools/dndproject/local.py
 
 FROM python:2.7-alpine3.7
-RUN apk add --no-cache mysql-client
+RUN apk add --no-cache mysql-client mysql-client-libs
 
 WORKDIR /dndtools/dndtools/
 ENTRYPOINT ["/usr/local/bin/python2.7", "manage.py"]
