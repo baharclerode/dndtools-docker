@@ -10,6 +10,7 @@ RUN git clone https://github.com/dndtools/dndtools.git /dndtools
 WORKDIR /dndtools/
 ARG revision=master
 RUN git checkout --detach $revision
+RUN pip install mysql-python
 RUN pip install -r requirements.txt
 
 COPY local.py dndtools/dndproject/local.py
