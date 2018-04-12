@@ -3,7 +3,7 @@
 import os
 
 # Change this to False if you run it in development
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 # See https://docs.djangoproject.com/en/1.6/ref/settings/#databases for reference
